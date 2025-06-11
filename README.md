@@ -1,4 +1,5 @@
 Alerta de Voos Baratos ✈️
+
 Este projeto é um bot automatizado que monitora os preços de voos para destinos de interesse e envia um alerta por SMS ou WhatsApp quando encontra uma passagem abaixo do preço-alvo. Os destinos e preços são gerenciados através de uma simples planilha do Google Sheets.
 
 Funcionalidades Principais
