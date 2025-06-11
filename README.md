@@ -12,12 +12,6 @@ Este projeto é um bot automatizado que monitora os preços de voos para destino
 -   **Monitoramento de Preços**: Pesquisa os voos mais baratos (ida e volta, diretos) para os próximos 6 meses.
 -   **Alertas por SMS/WhatsApp**: Se um voo é encontrado com preço inferior ao definido na planilha, um alerta detalhado é enviado via Twilio.
 
-## Demo do Alerta
-
-Quando um voo barato é encontrado, você recebe uma notificação como esta:
-
-![Exemplo de Notificação de Voo](https://i.imgur.com/g8i6lcy.png)
-
 ---
 
 ## Tecnologias Utilizadas
