@@ -1,38 +1,54 @@
-Alerta de Voos Baratos ✈️
+# Alerta de Voos Baratos ✈️
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)
 
 Este projeto é um bot automatizado que monitora os preços de voos para destinos de interesse e envia um alerta por SMS ou WhatsApp quando encontra uma passagem abaixo do preço-alvo. Os destinos e preços são gerenciados através de uma simples planilha do Google Sheets.
 
-Funcionalidades Principais
-Gerenciamento via Planilha: Lê a lista de destinos e preços-alvo diretamente de uma planilha do Google Sheets.
-Busca Automática de IATA: Preenche automaticamente os códigos IATA para as cidades listadas na planilha.
-Monitoramento de Preços: Pesquisa os voos mais baratos (ida e volta, diretos) para os próximos 6 meses.
-Alertas por SMS/WhatsApp: Se um voo é encontrado com preço inferior ao definido na planilha, um alerta detalhado é enviado via Twilio.
-Demo do Alerta
+## Funcionalidades Principais
+
+-   **Gerenciamento via Planilha**: Lê a lista de destinos e preços-alvo diretamente de uma planilha do Google Sheets.
+-   **Busca Automática de IATA**: Preenche automaticamente os códigos IATA para as cidades listadas na planilha.
+-   **Monitoramento de Preços**: Pesquisa os voos mais baratos (ida e volta, diretos) para os próximos 6 meses.
+-   **Alertas por SMS/WhatsApp**: Se um voo é encontrado com preço inferior ao definido na planilha, um alerta detalhado é enviado via Twilio.
+
+## Demo do Alerta
+
 Quando um voo barato é encontrado, você recebe uma notificação como esta:
 
-Tecnologias Utilizadas
-Linguagem: Python
-APIs:
-Sheety: Para interagir com a Google Sheet como se fosse uma API REST.
-Amadeus Self-Service API: Para busca de códigos de cidades (IATA) e pesquisa de ofertas de voos.
-Twilio API: Para o envio de notificações via SMS/WhatsApp.
-Bibliotecas Python:
-requests: Para realizar as chamadas HTTP para as APIs.
-python-dotenv: Para gerenciar as chaves de API e segredos de forma segura.
-twilio: Para interagir com a API da Twilio.
-Configuração e Instalação
+![Exemplo de Notificação de Voo](https://i.imgur.com/g8i6lcy.png)
+
+---
+
+## Tecnologias Utilizadas
+
+-   **Linguagem**: Python
+-   **APIs**:
+    -   [**Sheety**](https://sheety.co/): Para interagir com a Google Sheet como se fosse uma API REST.
+    -   [**Amadeus Self-Service API**](https://developers.amadeus.com/): Para busca de códigos de cidades (IATA) e pesquisa de ofertas de voos.
+    -   [**Twilio API**](https://www.twilio.com/): Para o envio de notificações via SMS/WhatsApp.
+-   **Bibliotecas Python**:
+    -   `requests`: Para realizar as chamadas HTTP para as APIs.
+    -   `python-dotenv`: Para gerenciar as chaves de API e segredos de forma segura.
+    -   `twilio`: Para interagir com a API da Twilio.
+
+---
+
+## Configuração e Instalação
+
 Siga os passos abaixo para configurar e executar o projeto localmente.
 
-1. Pré-requisitos
-Python 3.11 ou superior.
-Contas ativas e chaves de API para Sheety, Amadeus for Developers e Twilio.
-Uma planilha no Google Sheets com as colunas: city, iataCode, lowestPrice.
-2. Instalação
+### 1. Pré-requisitos
+
+-   Python 3.11 ou superior.
+-   Contas ativas e chaves de API para **Sheety**, **Amadeus for Developers** e **Twilio**.
+-   Uma planilha no Google Sheets com as colunas: `city`, `iataCode`, `lowestPrice`.
+
+### 2. Instalação
+
 Primeiro, clone o repositório:
-
-Bash
-
-git clone https://github.com/seu-usuario/seu-repositorio.git
+```bash
+git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
 cd seu-repositorio
 Crie e ative um ambiente virtual:
 
@@ -62,7 +78,7 @@ b. Copie o conteúdo abaixo para o seu arquivo .env e substitua os valores pelos
 Snippet de código
 
 # Sheety API
-SHEETY_ENDPOINT="https://api.sheety.co/seu/endpoint/prices"
+SHEETY_ENDPOINT="[https://api.sheety.co/seu/endpoint/prices](https://api.sheety.co/seu/endpoint/prices)"
 
 # Amadeus API
 AMADEUS_API_KEY="SUA_CHAVE_DE_API_AMADEUS"
@@ -84,3 +100,6 @@ Bash
 
 python main.py
 O script irá percorrer a sua planilha, buscar os voos e enviar notificações se as condições forem atendidas.
+
+Licença
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
