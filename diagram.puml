@@ -1,0 +1,58 @@
+@startuml diagram
+!theme plain
+
+title Diagrama de Classes - Buscador de Ofertas de Voos
+
+hide empty members
+
+skinparam classAttributeIconSize 0
+skinparam style strictuml
+
+component "main.py" <<Orchestrator>> {
+}
+
+class DataManager {
+  - sheety_endpoint: string
+  - auth_headers: dict
+  + get_destination_data(): list
+  + update_destination_codes(data: list): void
+}
+
+class FlightSearch {
+  - api_key: string
+  - api_secret: string
+  - token: string
+  --
+  - _get_new_token(): void
+  + get_iata_code(city_name: string): string
+  + search_flights(origin: string, destination: string): FlightData
+}
+
+class "FlightData" <<Data Container>> {
+  + price: float
+  + origin_city: string
+  + origin_airport: string
+  + destination_city: string
+  + destination_airport: string
+  + out_date: string
+  + return_date: string
+}
+
+class NotificationManager {
+  - twilio_sid: string
+  - twilio_token: string
+  - from_number: string
+  - to_number: string
+  --
+  + send_sms(flight_data: FlightData): void
+}
+
+main.py ..> DataManager : usa
+main.py ..> FlightSearch : usa
+main.py ..> NotificationManager : usa
+
+FlightSearch ..> FlightData : cria
+
+NotificationManager ..> FlightData : usa
+
+@enduml
